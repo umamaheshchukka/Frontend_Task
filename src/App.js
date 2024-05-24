@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import RegisterForm from "./componenets/register";
+import LoginForm from "./componenets/login";
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
+import TemperatureChart from "./componenets/chart";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Link to={"/"}>RegisterForm</Link>/
+      <Link to={"/login"}>LoginForm</Link>
+      {/* <Link to="/chart">chart</Link> */}
+      <Routes>
+      <Route path='/' element={<RegisterForm />} />
+      <Route path="/login" element={<LoginForm/>}/>
+      <Route path="/chart" element={<TemperatureChart/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
 export default App;
